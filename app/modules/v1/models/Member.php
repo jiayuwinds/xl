@@ -6,14 +6,14 @@ use yii\db\ActiveRecord;
 
 class Member extends ActiveRecord
 {
-    public function fields()
-    {
-        return [
-            'member_id',
-            'email' => 'username',
-            'username' => function (){
-                return $this->username.'|'.$this->password;
-            }
-        ];
-    }
+//     public function fields()
+//     {
+//         return [
+//             'member_id',
+//             'email' => 'username',
+//             'username' => function (){
+//                 return $this->username.'|'.$this->password;
+//             }
+//         ];
+//     }
 }

@@ -25,6 +25,7 @@ $config = [
         'user' => [
             'identityClass' => 'app\common\models\User',
             'enableAutoLogin' => true,
+            'enableSession' => false,
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
