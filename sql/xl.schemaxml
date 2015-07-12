@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemadesigner version="6.5">
+<source>
+<database charset="utf8" collation="utf8_general_ci">xl</database>
+</source>
+<canvas zoom="100">
+<tables>
+<table name="xl_ad" view="colnames">
+<left>12</left>
+<top>38</top>
+<width>118</width>
+<height>279</height>
+<sql_create_table>CREATE TABLE `xl_ad` (
+  `ad_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '广告ID',
+  `ad_name` varchar(40) NOT NULL DEFAULT '' COMMENT '广告名',
+  `ad_pic` varchar(255) NOT NULL DEFAULT '' COMMENT '广告图片',
+  `ad_content` varchar(500) NOT NULL DEFAULT '' COMMENT '广告内容',
+  `adpos_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '广告位ID',
+  `ad_sort` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
+  `ad_status` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '0禁用1启用',
+  `ad_starttime` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '开始时间',
+  `ad_endtime` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '结束时间',
+  `ad_hits` int(11) NOT NULL DEFAULT '0' COMMENT '点击数',
+  `ad_views` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '浏览量',
+  `dateline` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '发布时间',
+  PRIMARY KEY (`ad_id`),
+  KEY `index_adpos_id` (`adpos_id`),
+  CONSTRAINT `xl_ad_ibfk_1` FOREIGN KEY (`adpos_id`) REFERENCES `xl_adpos` (`adpos_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='广告'</sql_create_table>
+</table>
+<table name="xl_adpos" view="colnames">
+<left>200</left>
+<top>28</top>
+<width>119</width>
+<height>126</height>
+<sql_create_table>CREATE TABLE `xl_adpos` (
+  `adpos_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '广告位ID',
+  `adpos_name` varchar(40) NOT NULL DEFAULT '' COMMENT '广告位名称',
+  `adpos_type` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '0web,1wap,2android,3ios',
+  PRIMARY KEY (`adpos_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='广告位'</sql_create_table>
+</table>
+<table name="xl_admin" view="colnames">
+<left>-10</left>
+<top>492</top>
+<width>160</width>
+<height>194</height>
+<sql_create_table>CREATE TABLE `xl_admin` (
+  `admin_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '管理员ID',
+  `admin_username` varchar(40) NOT NULL DEFAULT '' COMMENT '用户名',
+  `admin_password` varchar(100) NOT NULL DEFAULT '' COMMENT '密码',
+  `admin_status` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '0禁用1可用',
+  `admin_lastloginip` varchar(40) NOT NULL DEFAULT '' COMMENT '最后登录IP',
+  `admin_lastlogintime` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '最后登录时间',
+  `dateline` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '生成时间',
+  PRIMARY KEY (`admin_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='管理员'</sql_create_table>
+</table>
+<table name="xl_article" view="colnames">
+<left>845</left>
+<top>247</top>
+<width>142</width>
+<height>361</height>
+<sql_create_table>CREATE TABLE `xl_article` (
+  `article_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '文章ID',
+  `lumn_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '栏目ID',
+  `article_name` varchar(100) NOT NULL DEFAULT '' COMMENT '文章标题',
+  `article_summary` varchar(255) NOT NULL DEFAULT '' COMMENT '概要',
+  `article_content` text NOT NULL COMMENT '内容',
+  `article_author` varchar(40) NOT NULL DEFAULT '' COMMENT '作者',
+  `article_from` varchar(100) NOT NULL DEFAULT '' COMMENT '来源',
+  `article_tag` varchar(100) NOT NULL DEFAULT '' COMMENT '标签',
+  `article_sort` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
+  `article_hit` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '文章点击数',
+  `article_status` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '0未审核1显示2隐藏',
+  `seo_title` varchar(100) NOT NULL DEFAULT '' COMMENT '标题',
+  `seo_keyword` varchar(100) NOT NULL DEFAULT '' COMMENT '关键字',
+  `seo_description` varchar(255) NOT NULL DEFAULT '' COMMENT '描述',
+  `dateline` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '发布时间',
+  PRIMARY KEY (`article_id`),
+  KEY `index_lumn_id` (`lumn_id`),
+  CONSTRAINT `xl_article_ibfk_1` FOREIGN KEY (`lumn_id`) REFERENCES `xl_lumn` (`lumn_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='文章'</sql_create_table>
+</table>
+<table name="xl_lumn" view="colnames">
+<left>657</left>
+<top>198</top>
+<width>135</width>
+<height>245</height>
+<sql_create_table>CREATE TABLE `xl_lumn` (
+  `lumn_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '栏目ID',
+  `lumn_name` varchar(40) NOT NULL DEFAULT '' COMMENT '栏目名称',
+  `lumn_content` text NOT NULL COMMENT '简介',
+  `lumn_sort` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
+  `lumn_status` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '0隐藏1显示',
+  `parent_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '父类ID',
+  `seo_title` varchar(100) NOT NULL DEFAULT '' COMMENT 'title',
+  `seo_keyword` varchar(100) NOT NULL DEFAULT '' COMMENT 'keyword',
+  `seo_description` varchar(255) NOT NULL DEFAULT '' COMMENT '描述',
+  `dateline` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '添加时间',
+  PRIMARY KEY (`lumn_id`),
+  KEY `index_parent_id` (`parent_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='栏目'</sql_create_table>
+</table>
+<table name="xl_attribute" view="colnames">
+<left>505</left>
+<top>159</top>
+<width>110</width>
+<height>143</height>
+<sql_create_table>CREATE TABLE `xl_attribute` (
+  `attr_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '属性ID',
+  `attr_name` varchar(40) NOT NULL DEFAULT '' COMMENT '属性名',
+  `is_sale` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '0搜索属性1销售属性',
+  `is_required` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1必填',
+  PRIMARY KEY (`attr_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商品属性'</sql_create_table>
+</table>
+<table name="xl_attribute_value" view="colnames">
+<left>500</left>
+<top>2</top>
+<width>122</width>
+<height>143</height>
+<sql_create_table>CREATE TABLE `xl_attribute_value` (
+  `attrval_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '属性值ID',
+  `attrval_name` varchar(40) NOT NULL DEFAULT '' COMMENT '属性值',
+  `attrval_pic` varchar(255) NOT NULL DEFAULT '' COMMENT '属性值图片',
+  `attr_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '属性ID',
+  PRIMARY KEY (`attrval_id`),
+  KEY `index_attr_id` (`attr_id`),
+  CONSTRAINT `xl_attribute_value_ibfk_1` FOREIGN KEY (`attr_id`) REFERENCES `xl_attribute` (`attr_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商品属性值'</sql_create_table>
+</table>
+<table name="xl_goods_attrval" view="colnames">
+<left>1019</left>
+<top>35</top>
+<width>129</width>
+<height>143</height>
+<sql_create_table>CREATE TABLE `xl_goods_attrval` (
+  `attrval_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '属性ID',
+  `goods_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '商品ID',
+  `attrval_oname` varchar(40) NOT NULL DEFAULT '' COMMENT '属性值自定义名',
+  `attrval_opic` varchar(255) NOT NULL DEFAULT '' COMMENT '属性值自定义图片',
+  KEY `index_attrval_id` (`attrval_id`),
+  KEY `index_goods_id` (`goods_id`),
+  CONSTRAINT `xl_goods_attrval_ibfk_1` FOREIGN KEY (`goods_id`) REFERENCES `xl_goods` (`goods_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `xl_goods_attrval_ibfk_2` FOREIGN KEY (`attrval_id`) REFERENCES `xl_attribute_value` (`attrval_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商品属性值'</sql_create_table>
+</table>
+<table name="xl_goods" view="colnames">
+<left>133</left>
+<top>180</top>
+<width>163</width>
+<height>308</height>
+<sql_create_table>CREATE TABLE `xl_goods` (
+  `goods_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `cat_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '分类ID',
+  `goods_sn` char(10) NOT NULL DEFAULT '0' COMMENT '商品编号',
+  `goods_name` varchar(100) NOT NULL DEFAULT '' COMMENT '商品名',
+  `goods_summary` varchar(255) NOT NULL DEFAULT '' COMMENT '概要',
+  `goods_market_price` float(10,2) unsigned NOT NULL DEFAULT '0.00' COMMENT '市场价',
+  `goods_price` float(10,2) unsigned NOT NULL DEFAULT '0.00' COMMENT '商品价',
+  `goods_score` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '商品积分',
+  `goods_stock` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '库存',
+  `goods_status` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '0删除1正常2下架',
+  `goods_content` text NOT NULL COMMENT '内容',
+  `goods_pic` varchar(255) NOT NULL DEFAULT '' COMMENT '商品首图',
+  `goods_sales` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '销量',
+  `goods_sort` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '排序大的排前',
+  `good_evaluations` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '好评数',
+  `middle_evaluations` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '中评数',
+  `bad_evaluations` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '差评数',
+  `putaway_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '上架时间',
+  `dateline` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '上线时间',
+  `seo_title` varchar(100) NOT NULL DEFAULT '' COMMENT '标题',
+  `seo_keyword` varchar(100) NOT NULL DEFAULT '' COMMENT '关键字',
+  `seo_description` varchar(255) NOT NULL DEFAULT '' COMMENT '描述',
+  PRIMARY KEY (`goods_id`),
+  KEY `index_cat_id` (`cat_id`),
+  CONSTRAINT `xl_goods_ibfk_1` FOREIGN KEY (`cat_id`) REFERENCES `xl_category` (`cat_id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商品'</sql_create_table>
+</table>
+<table name="xl_cart" view="colnames">
+<left>155</left>
+<top>532</top>
+<width>111</width>
+<height>160</height>
+<sql_create_table>CREATE TABLE `xl_cart` (
+  `cart_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '购物车ID',
+  `member_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '会员ID',
+  `goods_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '商品ID',
+  `num` int(10) unsigned NOT NULL DEFAULT '1' COMMENT '数量',
+  `dateline` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '添加时间',
+  PRIMARY KEY (`cart_id`),
+  KEY `index_member_id` (`member_id`),
+  KEY `index_goods_id` (`goods_id`),
+  CONSTRAINT `xl_cart_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `xl_member` (`member_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `xl_cart_ibfk_2` FOREIGN KEY (`goods_id`) REFERENCES `xl_goods` (`goods_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='购物车'</sql_create_table>
+</table>
+<table name="xl_member" view="colnames">
+<left>336</left>
+<top>4</top>
+<width>118</width>
+<height>454</height>
+<sql_create_table>CREATE TABLE `xl_member` (
+  `member_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '会员ID',
+  `member_sn` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '会员编号',
+  `username` varchar(40) NOT NULL DEFAULT '' COMMENT '用户名',
+  `password` varchar(255) NOT NULL DEFAULT '' COMMENT '密码',
+  `nick` varchar(40) NOT NULL DEFAULT '' COMMENT '昵称',
+  `realname` varchar(40) NOT NULL DEFAULT '' COMMENT '真实姓名',
+  `avatar` varchar(255) NOT NULL DEFAULT '' COMMENT '头像',
+  `sign` varchar(255) NOT NULL DEFAULT '' COMMENT '签名',
+  `sex` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '0保密1男2女',
+  `birthday` int(8) unsigned NOT NULL DEFAULT '0' COMMENT '生日19901010',
+  `mobile` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '手机',
+  `email` varchar(100) NOT NULL DEFAULT '' COMMENT '邮箱',
+  `province` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '省',
+  `city` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '市',
+  `area` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '区',
+  `address` varchar(255) NOT NULL DEFAULT '' COMMENT '地址',
+  `idcard` varchar(20) NOT NULL DEFAULT '' COMMENT '身份证',
+  `score` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '积分',
+  `grade` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '会员等级0普通1铜牌2银牌3金牌4钻石',
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '0禁用1正常',
+  `lastlogintime` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '最后登录时间',
+  `lastloginip` varchar(40) NOT NULL DEFAULT '' COMMENT '最后登录IP',
+  `dateline` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '注册时间',
+  PRIMARY KEY (`member_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='会员'</sql_create_table>
+</table>
+<table name="xl_category" view="colnames">
+<left>338</left>
+<top>571</top>
+<width>135</width>
+<height>177</height>
+<sql_create_table>CREATE TABLE `xl_category` (
+  `cat_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '分类ID',
+  `cat_name` varchar(40) NOT NULL DEFAULT '' COMMENT '分类名',
+  `parent_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '父类ID',
+  `seo_title` varchar(100) NOT NULL DEFAULT '' COMMENT '标题',
+  `seo_keyword` varchar(100) NOT NULL DEFAULT '' COMMENT '关键字',
+  `seo_description` varchar(255) NOT NULL DEFAULT '' COMMENT '描述',
+  PRIMARY KEY (`cat_id`),
+  KEY `index_parent_id` (`parent_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商品分类'</sql_create_table>
+</table>
+<table name="xl_auth_assignments" view="colnames">
+<left>514</left>
+<top>459</top>
+<width>103</width>
+<height>143</height>
+<sql_create_table>CREATE TABLE `xl_auth_assignments` (
+  `itemname` varchar(64) NOT NULL,
+  `userid` varchar(64) NOT NULL,
+  `bizrule` text,
+  `data` text,
+  PRIMARY KEY (`itemname`,`userid`),
+  CONSTRAINT `xl_auth_assignments_ibfk_1` FOREIGN KEY (`itemname`) REFERENCES `xl_auth_items` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='角色分配'</sql_create_table>
+</table>
+<table name="xl_auth_items" view="colnames">
+<left>658</left>
+<top>458</top>
+<width>108</width>
+<height>160</height>
+<sql_create_table>CREATE TABLE `xl_auth_items` (
+  `name` varchar(64) NOT NULL,
+  `type` int(11) NOT NULL COMMENT '0 - Operation 操作 1 - Task 任务 2 - Role 角色',
+  `description` text,
+  `bizrule` text,
+  `data` text,
+  PRIMARY KEY (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='权限项'</sql_create_table>
+</table>
+<table name="xl_auth_item_childs" view="colnames">
+<left>525</left>
+<top>332</top>
+<width>83</width>
+<height>109</height>
+<sql_create_table>CREATE TABLE `xl_auth_item_childs` (
+  `parent` varchar(64) NOT NULL,
+  `child` varchar(64) NOT NULL,
+  PRIMARY KEY (`parent`,`child`),
+  KEY `child` (`child`),
+  CONSTRAINT `xl_auth_item_childs_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `xl_auth_items` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `xl_auth_item_childs_ibfk_2` FOREIGN KEY (`child`) REFERENCES `xl_auth_items` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='权限关系'</sql_create_table>
+</table>
+<table name="xl_evaluate" view="colnames">
+<left>1031</left>
+<top>436</top>
+<width>144</width>
+<height>211</height>
+<sql_create_table>CREATE TABLE `xl_evaluate` (
+  `evaluate_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '评价ID',
+  `goods_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '商品ID',
+  `order_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '订单ID',
+  `evaluate_content` varchar(255) NOT NULL DEFAULT '' COMMENT '评价内容',
+  `evaluate_style` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '款式评分0不满意1满意',
+  `evaluate_quality` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '质量评分0不满意1满意',
+  `evaluate_size` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '尺寸评分0不满意1满意',
+  `dateline` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '评价时间',
+  PRIMARY KEY (`evaluate_id`),
+  KEY `goods_id` (`goods_id`),
+  KEY `order_id` (`order_id`),
+  CONSTRAINT `xl_evaluate_ibfk_1` FOREIGN KEY (`goods_id`) REFERENCES `xl_goods` (`goods_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `xl_evaluate_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `xl_order` (`order_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='评价'</sql_create_table>
+</table>
+<table name="xl_file" view="colnames">
+<left>657</left>
+<top>13</top>
+<width>112</width>
+<height>245</height>
+<sql_create_table>CREATE TABLE `xl_file` (
+  `file_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '文件ID',
+  `file_name` varchar(40) NOT NULL DEFAULT '' COMMENT '文件名',
+  `file_dir` varchar(255) NOT NULL DEFAULT '' COMMENT '文件地址',
+  `file_size` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '文件大小-单位字节',
+  `file_ext` varchar(10) NOT NULL DEFAULT '' COMMENT '后缀名',
+  `file_sort` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
+  `goods_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '商品ID',
+  `member_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '会员ID',
+  `evaluate_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '评价ID',
+  `dateline` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '上传时间',
+  PRIMARY KEY (`file_id`),
+  KEY `index_goods_id` (`goods_id`) USING BTREE,
+  KEY `index_member_id` (`member_id`) USING BTREE,
+  KEY `index_evaluate_id` (`evaluate_id`) USING BTREE,
+  CONSTRAINT `xl_file_ibfk_1` FOREIGN KEY (`goods_id`) REFERENCES `xl_goods` (`goods_id`) ON UPDATE CASCADE,
+  CONSTRAINT `xl_file_ibfk_2` FOREIGN KEY (`member_id`) REFERENCES `xl_member` (`member_id`) ON UPDATE CASCADE,
+  CONSTRAINT `xl_file_ibfk_3` FOREIGN KEY (`evaluate_id`) REFERENCES `xl_evaluate` (`evaluate_id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='文件'</sql_create_table>
+</table>
+<table name="xl_order" view="colnames">
+<left>816</left>
+<top>22</top>
+<width>162</width>
+<height>194</height>
+<sql_create_table>CREATE TABLE `xl_order` (
+  `order_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '订单ID',
+  `member_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '会员ID',
+  `order_sn` char(15) NOT NULL DEFAULT '' COMMENT '订单编号',
+  `order_amount` float(10,2) unsigned NOT NULL DEFAULT '0.00' COMMENT '总金额',
+  `order_status` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '0待付款1待发货2待签收3待评价4完成5退货6换货7已取消',
+  `order_delivery_time` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '发货时间',
+  `dateline` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '下单时间',
+  PRIMARY KEY (`order_id`),
+  KEY `index_member_id` (`member_id`),
+  CONSTRAINT `xl_order_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `xl_member` (`member_id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='订单'</sql_create_table>
+</table>
+<table name="xl_feedback" view="colnames">
+<left>1014</left>
+<top>242</top>
+<width>147</width>
+<height>143</height>
+<sql_create_table>CREATE TABLE `xl_feedback` (
+  `feedback_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '反馈ID',
+  `member_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '会员ID',
+  `feedback_content` varchar(500) NOT NULL DEFAULT '' COMMENT '反馈内容',
+  `dateline` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '反馈时间',
+  PRIMARY KEY (`feedback_id`),
+  KEY `index_member_id` (`member_id`),
+  CONSTRAINT `xl_feedback_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `xl_member` (`member_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='意见反馈'</sql_create_table>
+</table>
+<table name="xl_order_goods" view="colnames">
+<left>518</left>
+<top>617</top>
+<width>97</width>
+<height>143</height>
+<sql_create_table>CREATE TABLE `xl_order_goods` (
+  `order_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '订单ID',
+  `goods_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '商品ID',
+  `price` float(10,2) unsigned NOT NULL DEFAULT '0.00' COMMENT '价格',
+  `num` int(10) unsigned NOT NULL DEFAULT '1' COMMENT '数量',
+  KEY `index_order_id` (`order_id`),
+  KEY `index_goods_id` (`goods_id`),
+  CONSTRAINT `xl_order_goods_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `xl_order` (`order_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `xl_order_goods_ibfk_2` FOREIGN KEY (`goods_id`) REFERENCES `xl_goods` (`goods_id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='订单详情'</sql_create_table>
+</table>
+<table name="xl_session" view="colnames">
+<left>668</left>
+<top>636</top>
+<width>96</width>
+<height>126</height>
+<sql_create_table>CREATE TABLE `xl_session` (
+  `id` char(32) NOT NULL,
+  `expire` int(11) DEFAULT NULL,
+  `data` longblob,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8</sql_create_table>
+</table>
+</tables>
+</canvas>
+</schemadesigner>
