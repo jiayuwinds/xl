@@ -1,0 +1,17 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+	hideDotFiles = dotGitOnly
+[gui]
+	wmstate = normal
+	geometry = 799x475+255+232 301 214
+[remote "xl"]
+	url = https://github.com/jiayuwinds/xl.git
+	fetch = +refs/heads/*:refs/remotes/xl/*
+[branch "master"]
+	remote = xl
+	merge = refs/heads/master

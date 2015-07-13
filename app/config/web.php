@@ -43,16 +43,15 @@ $config = [
                 ],
             ],
         ],
+        'session' => [
+            'class' => 'yii\web\DbSession',
+        ],
         'db' => require(__DIR__ . '/db.php'),
         'urlManager' => [
             'enablePrettyUrl' => true,
             'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
-//                 '<controller:\w+>/'=>'<controller>/',
-//                 '<controller:\w+>/<id:\d+>' => '<controller>/view',
-//                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-//                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
                 [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => 'v1/member',

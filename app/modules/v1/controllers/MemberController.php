@@ -35,6 +35,11 @@ class MemberController extends AppController
 
     public function checkAccess($action, $model = null, $params = [])
     {
-        
+        /*
+        $session = Yii::$app->session;
+        $session->set('language', 'en-US');
+        $language = $session->get('language');
+        p($language);*/
+        //throw new \yii\web\HttpException(411,'权限不足',1);
     }
 }
