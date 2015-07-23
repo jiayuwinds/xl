@@ -1,0 +1,196 @@
+2015-07-23 22:51:46 [127.0.0.1][-][-][error][yii\base\InvalidConfigException] exception 'yii\base\InvalidConfigException' with message 'yii\web\Request::cookieValidationKey must be configured with a secret key.' in D:\www\xl\vendor\yiisoft\yii2\web\Request.php:1212
+Stack trace:
+#0 D:\www\xl\vendor\yiisoft\yii2\web\Request.php(1194): yii\web\Request->loadCookies()
+#1 D:\www\xl\vendor\yiisoft\yii2\web\Request.php(1280): yii\web\Request->getCookies()
+#2 D:\www\xl\vendor\yiisoft\yii2\web\Request.php(1259): yii\web\Request->loadCsrfToken()
+#3 D:\www\xl\vendor\yiisoft\yii2\helpers\BaseHtml.php(273): yii\web\Request->getCsrfToken()
+#4 D:\www\xl\vendor\yiisoft\yii2-gii\views\layouts\main.php(17): yii\helpers\BaseHtml::csrfMetaTags()
+#5 D:\www\xl\vendor\yiisoft\yii2\base\View.php(325): require('D:\www\xl\vendo...')
+#6 D:\www\xl\vendor\yiisoft\yii2\base\View.php(247): yii\base\View->renderPhpFile('D:\www\xl\vendo...', Array)
+#7 D:\www\xl\vendor\yiisoft\yii2\base\Controller.php(386): yii\base\View->renderFile('D:\www\xl\vendo...', Array, Object(yii\gii\controllers\DefaultController))
+#8 D:\www\xl\vendor\yiisoft\yii2\base\Controller.php(372): yii\base\Controller->renderContent('<div class="def...')
+#9 D:\www\xl\vendor\yiisoft\yii2-gii\controllers\DefaultController.php(35): yii\base\Controller->render('index')
+#10 [internal function]: yii\gii\controllers\DefaultController->actionIndex()
+#11 D:\www\xl\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#12 D:\www\xl\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#13 D:\www\xl\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('', Array)
+#14 D:\www\xl\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('gii', Array)
+#15 D:\www\xl\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#16 D:\www\xl\backend\web\index.php(18): yii\base\Application->run()
+#17 {main}
+2015-07-23 22:51:45 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'gii'
+]
+
+$_COOKIE = [
+    '_csrf' => '1a235bcec25c1156347b53f5e49b771fb8b6f4826ab304f4c814bb3dd07c247ca:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"_l0iX_Neob6IS8SNCiBJxRyQBcyElzcN\";}'
+    'PHPSESSID' => '39n7vhfc3vjb3slc81gouqd4d1'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\NetSarang;C:\\Program Files\\Common Files\\Microsoft Shared\\Windows Live;C:\\Program Files (x86)\\Common Files\\Microsoft Shared\\Windows Live;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\WiFi\\bin\\;C:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;c:\\Program Files (x86)\\Common Files\\Roxio Shared\\DLLShared\\;c:\\Program Files (x86)\\Common Files\\Roxio Shared\\OEM\\12.0\\DLLShared\\;c:\\Program Files (x86)\\Roxio\\OEM\\AudioCore\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\Program Files\\nodejs\\;C:\\Program Files (x86)\\VisualSVN Server\\bin;C:\\Program Files\\TortoiseSVN\\bin;D:\\phpStudy\\phpd;D:\\phpStudy\\phpd\\ext;D:\\www\\yii\\framework;'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHPRC' => 'D:/phpStudy/phpb'
+    '_FCGI_SHUTDOWN_EVENT_' => '2728'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'REQUEST_URI' => '/backend/web/index.php?r=gii'
+    'QUERY_STRING' => 'r=gii'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '51829'
+    'SCRIPT_FILENAME' => 'D:/www/xl/backend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/www/xl'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'D:/www/xl'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => 'xl.cn'
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) OpenSSL/0.9.8y mod_fcgid/2.3.7'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_COOKIE' => '_csrf=1a235bcec25c1156347b53f5e49b771fb8b6f4826ab304f4c814bb3dd07c247ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22_l0iX_Neob6IS8SNCiBJxRyQBcyElzcN%22%3B%7D; PHPSESSID=39n7vhfc3vjb3slc81gouqd4d1'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_HOST' => 'xl.cn'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1437663105.5095
+    'REQUEST_TIME' => 1437663105
+]
+2015-07-23 22:52:27 [127.0.0.1][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)' in D:\www\xl\vendor\yiisoft\yii2\db\Connection.php:579
+Stack trace:
+#0 D:\www\xl\vendor\yiisoft\yii2\db\Connection.php(579): PDO->__construct('mysql:host=loca...', 'root', '', NULL)
+#1 D:\www\xl\vendor\yiisoft\yii2\db\Connection.php(529): yii\db\Connection->createPdoInstance()
+#2 D:\www\xl\vendor\yiisoft\yii2\db\Connection.php(836): yii\db\Connection->open()
+#3 D:\www\xl\vendor\yiisoft\yii2\db\Connection.php(823): yii\db\Connection->getMasterPdo()
+#4 D:\www\xl\vendor\yiisoft\yii2\db\Command.php(206): yii\db\Connection->getSlavePdo()
+#5 D:\www\xl\vendor\yiisoft\yii2\db\Command.php(819): yii\db\Command->prepare(true)
+#6 D:\www\xl\vendor\yiisoft\yii2\db\Command.php(392): yii\db\Command->queryInternal('fetchAll', 7)
+#7 D:\www\xl\vendor\yiisoft\yii2\db\mysql\Schema.php(308): yii\db\Command->queryColumn()
+#8 D:\www\xl\vendor\yiisoft\yii2\db\Schema.php(228): yii\db\mysql\Schema->findTableNames('')
+#9 D:\www\xl\vendor\yiisoft\yii2-gii\generators\model\Generator.php(151): yii\db\Schema->getTableNames()
+#10 [internal function]: yii\gii\generators\model\Generator->yii\gii\generators\model\{closure}()
+#11 D:\www\xl\vendor\yiisoft\yii2-gii\components\ActiveField.php(41): call_user_func(Object(Closure))
+#12 D:\www\xl\vendor\yiisoft\yii2\base\Object.php(107): yii\gii\components\ActiveField->init()
+#13 [internal function]: yii\base\Object->__construct(Array)
+#14 D:\www\xl\vendor\yiisoft\yii2\di\Container.php(372): ReflectionClass->newInstanceArgs(Array)
+#15 D:\www\xl\vendor\yiisoft\yii2\di\Container.php(151): yii\di\Container->build('yii\gii\compone...', Array, Array)
+#16 D:\www\xl\vendor\yiisoft\yii2\BaseYii.php(344): yii\di\Container->get('yii\gii\compone...', Array, Array)
+#17 D:\www\xl\vendor\yiisoft\yii2\widgets\ActiveForm.php(281): yii\BaseYii::createObject(Array)
+#18 D:\www\xl\vendor\yiisoft\yii2-gii\generators\model\form.php(6): yii\widgets\ActiveForm->field(Object(yii\gii\generators\model\Generator), 'tableName')
+#19 D:\www\xl\vendor\yiisoft\yii2\base\View.php(325): require('D:\www\xl\vendo...')
+#20 D:\www\xl\vendor\yiisoft\yii2\base\View.php(247): yii\base\View->renderPhpFile('D:\www\xl\vendo...', Array)
+#21 D:\www\xl\vendor\yiisoft\yii2-gii\views\default\view.php(38): yii\base\View->renderFile('D:\www\xl\vendo...', Array)
+#22 D:\www\xl\vendor\yiisoft\yii2\base\View.php(325): require('D:\www\xl\vendo...')
+#23 D:\www\xl\vendor\yiisoft\yii2\base\View.php(247): yii\base\View->renderPhpFile('D:\www\xl\vendo...', Array)
+#24 D:\www\xl\vendor\yiisoft\yii2\base\View.php(149): yii\base\View->renderFile('D:\www\xl\vendo...', Array, Object(yii\gii\controllers\DefaultController))
+#25 D:\www\xl\vendor\yiisoft\yii2\base\Controller.php(371): yii\base\View->render('view', Array, Object(yii\gii\controllers\DefaultController))
+#26 D:\www\xl\vendor\yiisoft\yii2-gii\controllers\DefaultController.php(56): yii\base\Controller->render('view', Array)
+#27 [internal function]: yii\gii\controllers\DefaultController->actionView('model')
+#28 D:\www\xl\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#29 D:\www\xl\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#30 D:\www\xl\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('view', Array)
+#31 D:\www\xl\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('gii/default/vie...', Array)
+#32 D:\www\xl\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#33 D:\www\xl\backend\web\index.php(18): yii\base\Application->run()
+#34 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)' in D:\www\xl\vendor\yiisoft\yii2\db\Connection.php:534
+Stack trace:
+#0 D:\www\xl\vendor\yiisoft\yii2\db\Connection.php(836): yii\db\Connection->open()
+#1 D:\www\xl\vendor\yiisoft\yii2\db\Connection.php(823): yii\db\Connection->getMasterPdo()
+#2 D:\www\xl\vendor\yiisoft\yii2\db\Command.php(206): yii\db\Connection->getSlavePdo()
+#3 D:\www\xl\vendor\yiisoft\yii2\db\Command.php(819): yii\db\Command->prepare(true)
+#4 D:\www\xl\vendor\yiisoft\yii2\db\Command.php(392): yii\db\Command->queryInternal('fetchAll', 7)
+#5 D:\www\xl\vendor\yiisoft\yii2\db\mysql\Schema.php(308): yii\db\Command->queryColumn()
+#6 D:\www\xl\vendor\yiisoft\yii2\db\Schema.php(228): yii\db\mysql\Schema->findTableNames('')
+#7 D:\www\xl\vendor\yiisoft\yii2-gii\generators\model\Generator.php(151): yii\db\Schema->getTableNames()
+#8 [internal function]: yii\gii\generators\model\Generator->yii\gii\generators\model\{closure}()
+#9 D:\www\xl\vendor\yiisoft\yii2-gii\components\ActiveField.php(41): call_user_func(Object(Closure))
+#10 D:\www\xl\vendor\yiisoft\yii2\base\Object.php(107): yii\gii\components\ActiveField->init()
+#11 [internal function]: yii\base\Object->__construct(Array)
+#12 D:\www\xl\vendor\yiisoft\yii2\di\Container.php(372): ReflectionClass->newInstanceArgs(Array)
+#13 D:\www\xl\vendor\yiisoft\yii2\di\Container.php(151): yii\di\Container->build('yii\gii\compone...', Array, Array)
+#14 D:\www\xl\vendor\yiisoft\yii2\BaseYii.php(344): yii\di\Container->get('yii\gii\compone...', Array, Array)
+#15 D:\www\xl\vendor\yiisoft\yii2\widgets\ActiveForm.php(281): yii\BaseYii::createObject(Array)
+#16 D:\www\xl\vendor\yiisoft\yii2-gii\generators\model\form.php(6): yii\widgets\ActiveForm->field(Object(yii\gii\generators\model\Generator), 'tableName')
+#17 D:\www\xl\vendor\yiisoft\yii2\base\View.php(325): require('D:\www\xl\vendo...')
+#18 D:\www\xl\vendor\yiisoft\yii2\base\View.php(247): yii\base\View->renderPhpFile('D:\www\xl\vendo...', Array)
+#19 D:\www\xl\vendor\yiisoft\yii2-gii\views\default\view.php(38): yii\base\View->renderFile('D:\www\xl\vendo...', Array)
+#20 D:\www\xl\vendor\yiisoft\yii2\base\View.php(325): require('D:\www\xl\vendo...')
+#21 D:\www\xl\vendor\yiisoft\yii2\base\View.php(247): yii\base\View->renderPhpFile('D:\www\xl\vendo...', Array)
+#22 D:\www\xl\vendor\yiisoft\yii2\base\View.php(149): yii\base\View->renderFile('D:\www\xl\vendo...', Array, Object(yii\gii\controllers\DefaultController))
+#23 D:\www\xl\vendor\yiisoft\yii2\base\Controller.php(371): yii\base\View->render('view', Array, Object(yii\gii\controllers\DefaultController))
+#24 D:\www\xl\vendor\yiisoft\yii2-gii\controllers\DefaultController.php(56): yii\base\Controller->render('view', Array)
+#25 [internal function]: yii\gii\controllers\DefaultController->actionView('model')
+#26 D:\www\xl\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#27 D:\www\xl\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#28 D:\www\xl\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('view', Array)
+#29 D:\www\xl\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('gii/default/vie...', Array)
+#30 D:\www\xl\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#31 D:\www\xl\backend\web\index.php(18): yii\base\Application->run()
+#32 {main}
+Additional Information:
+
+2015-07-23 22:52:26 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'gii/default/view'
+    'id' => 'model'
+]
+
+$_COOKIE = [
+    '_csrf' => '1a235bcec25c1156347b53f5e49b771fb8b6f4826ab304f4c814bb3dd07c247ca:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"_l0iX_Neob6IS8SNCiBJxRyQBcyElzcN\";}'
+    'PHPSESSID' => '39n7vhfc3vjb3slc81gouqd4d1'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\NetSarang;C:\\Program Files\\Common Files\\Microsoft Shared\\Windows Live;C:\\Program Files (x86)\\Common Files\\Microsoft Shared\\Windows Live;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\WiFi\\bin\\;C:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;c:\\Program Files (x86)\\Common Files\\Roxio Shared\\DLLShared\\;c:\\Program Files (x86)\\Common Files\\Roxio Shared\\OEM\\12.0\\DLLShared\\;c:\\Program Files (x86)\\Roxio\\OEM\\AudioCore\\;C:\\Program Files (x86)\\Windows Live\\Shared;D:\\Program Files\\nodejs\\;C:\\Program Files (x86)\\VisualSVN Server\\bin;C:\\Program Files\\TortoiseSVN\\bin;D:\\phpStudy\\phpd;D:\\phpStudy\\phpd\\ext;D:\\www\\yii\\framework;'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHPRC' => 'D:/phpStudy/phpb'
+    '_FCGI_SHUTDOWN_EVENT_' => '2728'
+    'SCRIPT_NAME' => '/backend/web/index.php'
+    'REQUEST_URI' => '/backend/web/index.php?r=gii%2Fdefault%2Fview&id=model'
+    'QUERY_STRING' => 'r=gii%2Fdefault%2Fview&id=model'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '51844'
+    'SCRIPT_FILENAME' => 'D:/www/xl/backend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/www/xl'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'D:/www/xl'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => 'xl.cn'
+    'SERVER_SOFTWARE' => 'Apache/2.4.4 (Win32) OpenSSL/0.9.8y mod_fcgid/2.3.7'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_COOKIE' => '_csrf=1a235bcec25c1156347b53f5e49b771fb8b6f4826ab304f4c814bb3dd07c247ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22_l0iX_Neob6IS8SNCiBJxRyQBcyElzcN%22%3B%7D; PHPSESSID=39n7vhfc3vjb3slc81gouqd4d1'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_REFERER' => 'http://xl.cn/backend/web/index.php?r=gii'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_HOST' => 'xl.cn'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/backend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1437663146.6719
+    'REQUEST_TIME' => 1437663146
+]
